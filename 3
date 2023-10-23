@@ -1,0 +1,61 @@
+package exgraf1_pb_231023;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JPanel;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JComboBox;
+/**
+ *
+ * @author raquel.santos
+ */
+public class ExGraf1_PB_231023 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+    JFrame frame= new JFrame("Exemplo JComboBox");
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    frame.setSize(300,150);
+    
+    JPanel panel = new JPanel();
+    frame.add(panel);
+    
+    JLabel label = new JLabel("selecione um mês");
+    panel.add(label);
+    
+    String[]meses = {"Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"};
+    
+    
+    JComboBox<String> comboBox = new JComboBox<>(meses);
+    panel.add(comboBox);
+    
+    JButton button = new JButton("Exibir mês selecionado");
+    panel.add(button);
+    
+    JTextField textField = new JTextField(15);
+    panel.add(textField);
+    
+    button.addActionListener(new ActionListener(){
+    @Override
+    public void actionPerformed (ActionEvent e){
+    //obtém o mês selecionado a partir do JComboBox
+    String mesSelecionado = (String) comboBox.getSelectedItem();
+   
+    textField.setText("Mês selecionado: " + mesSelecionado);
+    
+}    
+        
+        
+    });
+    frame.setVisible(true);
+            
+    
+    
+      
+    }
+    
+}
