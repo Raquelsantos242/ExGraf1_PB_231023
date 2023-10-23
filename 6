@@ -1,0 +1,71 @@
+package exgraf1_pb_231023;
+import java.awt.Color;
+import java.awt.FlowLayout;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.*;
+/**
+ *
+ * @author raquel.santos
+ */
+public class ExGraf1_PB_231023 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Exemplo JComBox");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(300, 150);
+        
+        
+        JPanel panel = new JPanel();
+frame.add(panel);
+
+JLabel label = new JLabel("Selecione uma cor");
+panel.add(label);
+
+ String[] cores = {"Vermelho", "Verde", "Azul"};
+ 
+ JComboBox<String> comboBox = new JComboBox<>(cores);
+    panel.add(comboBox);
+    
+    JButton button = new JButton("Exibir cor de fundo");
+    panel.add(button);
+    
+    frame.setLayout(new FlowLayout());
+    final JPanel contentPanel = (JPanel)frame.getContentPane();
+        
+    button.addActionListener(new ActionListener(){
+         @Override
+         public void actionPerformed(ActionEvent e){
+             String corSelecionada = (String) comboBox.getSelectedItem();
+             
+             switch(corSelecionada){
+                 case "Vermelho":
+                     contentPanel.setBackground(Color.RED);
+                     break;
+                     case "Verde":
+                     contentPanel.setBackground(Color.GREEN);
+                     break;
+                     case "Azul":
+                     contentPanel.setBackground(Color.BLUE);
+                     break;
+                     default:
+                         contentPanel.setBackground(Color.WHITE);
+                         break;
+                     
+             }
+         }
+    
+        
+        
+         });
+    frame.setVisible(true);
+    }
+    
+    
+    
+}
