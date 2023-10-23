@@ -1,0 +1,29 @@
+package exgraf1_pb_231023;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+/**
+ *
+ * @author raquel.santos
+ */
+public class ExGraf1_PB_231023 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+       JFrame janela = new JFrame("Exemplo Swing");
+       janela.setSize(400, 200);
+       JButton botao = new JButton("Clique-me");
+       botao.addActionListener(new ActionListener(){
+           public void actionPerformed(ActionEvent e){
+               System.out.println("Botão foi clicado");
+           }
+       });
+       janela.add(botao);
+       janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+       janela.setVisible(true);
+    }
+    
+}
