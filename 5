@@ -1,0 +1,63 @@
+package exgraf1_pb_231023;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JPanel;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JComboBox;
+import javax.swing.JRadioButton;
+import javax.swing.ButtonGroup;
+import javax.swing.JList;
+import javax.swing.ListSelectionModel;
+import javax.swing.JScrollPane;
+/**
+ *
+ * @author raquel.santos
+ */
+public class ExGraf1_PB_231023 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+  JFrame frame = new JFrame("Exemplo JList");
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    frame.setSize(300, 300);
+
+    JPanel panel = new JPanel();
+    frame.add(panel);
+
+    JLabel label = new JLabel("Selecione uma fruta:");
+    panel.add(label);
+
+    String[] frutas = {"Maça", "Banana", "Morango", "Uva", "Pera"};
+
+    JList<String> listaDeFrutas = new JList<> (frutas);
+    listaDeFrutas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+    panel.add(new JScrollPane(listaDeFrutas));
+
+    JButton button = new JButton("Exibir fruta selecionada");
+    panel.add(button);
+
+    JTextField textField = new JTextField(15);
+    panel.add(textField);
+
+    button.addActionListener(new ActionListener(){
+        @Override
+        public void actionPerformed(ActionEvent e){
+            String frutaSelecionada = listaDeFrutas.getSelectedValue();
+
+            if(frutaSelecionada != null){
+                textField.setText("FrutaSelecionada: " + frutaSelecionada);
+            }else{
+                textField.setText("Selecione uma fruta");
+            }
+        }
+    });
+
+     frame.setVisible(true);
+    }
+    
+}
