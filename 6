@@ -27,7 +27,7 @@ frame.add(panel);
 JLabel label = new JLabel("Selecione uma cor");
 panel.add(label);
 
- String[] cores = {"Vermelho", "Verde", "Azul"};
+ String[] cores = {"Vermelho", "Verde", "Azul", "Rosa"};
  
  JComboBox<String> comboBox = new JComboBox<>(cores);
     panel.add(comboBox);
@@ -52,6 +52,9 @@ panel.add(label);
                      break;
                      case "Azul":
                      contentPanel.setBackground(Color.BLUE);
+                     break;
+                     case "Rosa":
+                     contentPanel.setBackground(Color.PINK);
                      break;
                      default:
                          contentPanel.setBackground(Color.WHITE);
