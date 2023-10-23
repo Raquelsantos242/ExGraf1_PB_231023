@@ -1,0 +1,70 @@
+package exgraf1_pb_231023;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JPanel;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JComboBox;
+import javax.swing.JRadioButton;
+import javax.swing.ButtonGroup;
+/**
+ *
+ * @author raquel.santos
+ */
+public class ExGraf1_PB_231023 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+  JFrame frame = new JFrame("Exemplo Option box");
+frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+frame.setSize(300, 150);
+
+//centraliza o formulario na tela 
+frame.setLocationRelativeTo(null);
+
+JPanel panel = new JPanel();
+frame.add(panel);
+
+JLabel label = new JLabel("Você gostaria de programação java?");
+panel.add(label);
+
+JRadioButton simRadioButton = new JRadioButton("Sim");
+JRadioButton naoRadioButton = new JRadioButton("Não");
+
+ButtonGroup grupoOpcoes = new ButtonGroup();
+grupoOpcoes.add(simRadioButton);
+grupoOpcoes.add(naoRadioButton);
+
+panel.add(simRadioButton);
+panel.add(naoRadioButton);
+
+JButton button = new JButton("Exibir opção selecionada");
+panel.add(button);
+
+JTextField textField = new JTextField(15);
+panel.add(textField);
+
+
+button.addActionListener(new ActionListener(){
+    @Override
+    public void actionPerformed(ActionEvent e){
+        String opcaoSelecionada = "";
+
+        if(simRadioButton.isSelected()){
+            opcaoSelecionada = "Sim";
+        }else{
+            opcaoSelecionada = "Não";
+        }
+
+        textField.setText("opcao selecionado: " + opcaoSelecionada);
+    }
+});
+
+ frame.setVisible(true);
+    }
+    
+}
